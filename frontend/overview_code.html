@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Accounts Overview - BLANK</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#574500",
+                        "outline-variant": "#4d4635",
+                        "on-tertiary": "#082b72",
+                        "primary-container": "#d4af37",
+                        "surface-container-lowest": "#110e07",
+                        "primary": "#f2ca50",
+                        "tertiary-fixed-dim": "#b4c5ff",
+                        "on-primary": "#3c2f00",
+                        "on-secondary-fixed-variant": "#44474d",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#254188",
+                        "surface-container-high": "#2d2a21",
+                        "error": "#ffb4ab",
+                        "on-background": "#eae1d4",
+                        "surface-container-low": "#1f1b13",
+                        "surface-container-highest": "#38342b",
+                        "on-secondary-fixed": "#191c21",
+                        "secondary-fixed-dim": "#c4c6cd",
+                        "on-surface-variant": "#d0c5af",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#27438a",
+                        "surface-tint": "#e9c349",
+                        "surface-dim": "#16130b",
+                        "surface": "#16130b",
+                        "surface-container": "#231f17",
+                        "on-surface": "#eae1d4",
+                        "tertiary-fixed": "#dbe1ff",
+                        "outline": "#99907c",
+                        "on-tertiary-fixed": "#00174b",
+                        "on-secondary": "#2d3136",
+                        "tertiary-container": "#97b0ff",
+                        "secondary": "#c4c6cd",
+                        "on-primary-container": "#554300",
+                        "inverse-surface": "#eae1d4",
+                        "inverse-primary": "#735c00",
+                        "tertiary": "#bfcdff",
+                        "on-error": "#690005",
+                        "inverse-on-surface": "#343027",
+                        "secondary-container": "#44474d",
+                        "surface-variant": "#38342b",
+                        "surface-bright": "#3d392f",
+                        "background": "#16130b",
+                        "on-primary-fixed": "#241a00",
+                        "secondary-fixed": "#e0e2e9",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-secondary-container": "#b3b5bc",
+                        "primary-fixed": "#ffe088"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max-width": "1280px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "financial-data": ["Inter"],
+                        "label-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "financial-data": ["20px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #16130b;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chrome-effect {
+            background: linear-gradient(135deg, #c4c6cd 0%, #ffffff 50%, #c4c6cd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar - Applied from COMPONENTS_10 -->
+<header class="bg-background dark:bg-background border-b border-outline-variant/10 fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16">
+<div class="flex items-center gap-3 cursor-pointer active:scale-95 transition-transform">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-outline-variant">
+<img alt="South African High Net Worth Individual Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkYh_PrQWwh_wERFIa3o14zsCherj0w2nkFToDiSKB_XjvfNhOvMgS6RG__dL6BaK9FTUMN_hOu8LlwpdwPupXGOAH9X9kaLjheDf7HmpRUExkkKnnmgPdVsLqEepiQIe7T7LnLTu6UjEgX1RQbRkV01OkXocOMhXv_n4aKzhfwu4GWGp-Xyj3GhbiczE1aOmXFOiTJvxtM-goG5uuKSdD0gmoe2utNF0hBfXYyVEI7Nj7Xk95nxhVjidsd3jMzsY_v8dUEHxsTzsT"/>
+</div>
+<h1 class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-primary leading-none">BLANK</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-primary hover:opacity-80 transition-opacity active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow max-w-[1280px] mx-auto w-full px-margin-mobile py-8 pt-24 pb-32">
+<div class="flex flex-col md:flex-row md:justify-between md:items-end mb-8 gap-4">
+<div>
+<p class="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] mb-2">Private Wealth Portfolio</p>
+<h2 class="font-display-lg-mobile md:font-display-lg text-on-surface">Accounts Overview</h2>
+</div>
+<button class="bg-primary text-on-primary px-8 py-4 rounded-lg flex items-center justify-center gap-2 font-bold tracking-tight hover:opacity-90 transition-all active:scale-95 shadow-[0_0_20px_rgba(242,202,80,0.15)]">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span>OPEN NEW ACCOUNT</span>
+</button>
+</div>
+<!-- Bento Summary Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="md:col-span-2 p-8 rounded-xl bg-surface-container-highest border border-outline-variant/20 relative overflow-hidden group">
+<div class="relative z-10">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-2">Net Worth</p>
+<h3 class="font-display-lg text-display-lg mb-6 text-primary">R1,425,000.82</h3>
+<div class="flex flex-wrap gap-8">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">MONTHLY REVENUE</span>
+<span class="font-financial-data text-financial-data text-primary">+ R124,000.00</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">MONTHLY OUTFLOW</span>
+<span class="font-financial-data text-financial-data text-secondary">- R42,105.50</span>
+</div>
+</div>
+</div>
+<!-- Chrome highlight background -->
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
+</div>
+<div class="bg-surface-container border border-outline-variant/20 rounded-xl p-8 flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-4" data-icon="insights">insights</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-1">Credit Health</p>
+<h3 class="font-headline-md text-headline-md text-on-surface">785 / 850</h3>
+</div>
+<div class="mt-6">
+<div class="h-1 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 92%"></div>
+</div>
+<p class="font-label-sm text-label-sm text-primary mt-2 uppercase">Excellent Status</p>
+</div>
+</div>
+</div>
+<!-- South African Account List -->
+<section class="space-y-6">
+<h3 class="font-headline-md text-headline-md text-primary mb-6 border-l-4 border-primary pl-4">Account Portfolio</h3>
+<!-- Gold Cheque Account -->
+<div class="group bg-surface-container-low border border-outline-variant/10 rounded-xl overflow-hidden transition-all hover:border-primary/50 hover:bg-surface-container">
+<div class="bg-surface-container-high/50 px-6 py-3 border-b border-outline-variant/10 flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Private Wealth Cheque</span>
+<span class="px-3 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase tracking-tighter">Active Portfolio</span>
+</div>
+<div class="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-lg bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg font-bold text-on-surface">Gold Cheque Account</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">SAVC •••• 4920</p>
+</div>
+</div>
+<div class="md:text-right">
+<p class="font-headline-md text-headline-md text-primary">R249,500.42</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-tighter">Available Balance</p>
+</div>
+<button class="md:ml-4 text-primary hover:translate-x-1 transition-transform p-2">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Investment/Savings Account -->
+<div class="group bg-surface-container-low border border-outline-variant/10 rounded-xl overflow-hidden transition-all hover:border-primary/50 hover:bg-surface-container">
+<div class="bg-surface-container-high/50 px-6 py-3 border-b border-outline-variant/10 flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Growth Investment</span>
+<span class="px-3 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded uppercase tracking-tighter">8.45% Repo +</span>
+</div>
+<div class="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-lg bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="savings">savings</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg font-bold text-on-surface">32-Day Notice Deposit</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">SAVC •••• 1158</p>
+</div>
+</div>
+<div class="md:text-right">
+<p class="font-headline-md text-headline-md text-primary">R1,124,000.00</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-tighter">Book Value</p>
+</div>
+<button class="md:ml-4 text-primary hover:translate-x-1 transition-transform p-2">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Credit Account -->
+<div class="group bg-surface-container-low border border-outline-variant/10 rounded-xl overflow-hidden transition-all hover:border-primary/50 hover:bg-surface-container">
+<div class="bg-surface-container-high/50 px-6 py-3 border-b border-outline-variant/10 flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Global Chrome Credit</span>
+<span class="px-3 py-0.5 bg-error/10 text-error text-[10px] font-bold rounded uppercase tracking-tighter">Payment due in 5 days</span>
+</div>
+<div class="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex items-center gap-6">
+<div class="w-14 h-14 rounded-lg bg-surface-container-highest border border-outline-variant/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl" data-icon="credit_card">credit_card</span>
+</div>
+<div>
+<h4 class="font-body-lg text-body-lg font-bold text-on-surface">Black Mastercard Premium</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">CRDT •••• 8821</p>
+</div>
+</div>
+<div class="md:text-right">
+<p class="font-headline-md text-headline-md text-primary">R51,496.60</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-tighter">Current Balance</p>
+</div>
+<button class="md:ml-4 text-primary hover:translate-x-1 transition-transform p-2">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar - Applied from COMPONENTS_10 -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-4 pb-safe bg-surface border-t border-outline-variant/10">
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary-fixed-dim transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold hover:text-primary-fixed-dim transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="account_balance_wallet" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Accounts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary-fixed-dim transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+<span class="font-label-sm text-label-sm">Transfer</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary-fixed-dim transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="font-label-sm text-label-sm">History</span>
+</a>
+</nav>
+<!-- Floating Action Button for Mobile Quick Actions -->
+<button class="fixed bottom-24 right-6 w-14 h-14 bg-primary text-on-primary rounded-full shadow-[0_4px_20px_rgba(242,202,80,0.4)] flex items-center justify-center md:hidden active:scale-90 transition-transform z-40 border border-on-primary/20">
+<span class="material-symbols-outlined" data-icon="qr_code_scanner">qr_code_scanner</span>
+</button>
+<script>
+    // Micro-interaction for cards
+    document.querySelectorAll('.group').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-2px)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+        });
+    });
+
+    // Simple active state toggle simulation for mobile nav
+    const navItems = document.querySelectorAll('nav a');
+    navItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            navItems.forEach(i => {
+                i.classList.remove('text-primary', 'font-bold');
+                i.classList.add('text-secondary');
+            });
+            item.classList.add('text-primary', 'font-bold');
+            item.classList.remove('text-secondary');
+        });
+    });
+</script>
+</body></html>

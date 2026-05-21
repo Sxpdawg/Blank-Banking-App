@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Blank - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Hanken+Grotesk:wght@600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(17, 14, 7, 0.9);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed-variant": "#574500",
+                      "outline-variant": "#4d4635",
+                      "on-tertiary": "#082b72",
+                      "primary-container": "#d4af37",
+                      "surface-container-lowest": "#110e07",
+                      "primary": "#f2ca50",
+                      "tertiary-fixed-dim": "#b4c5ff",
+                      "on-primary": "#3c2f00",
+                      "on-secondary-fixed-variant": "#44474d",
+                      "error-container": "#93000a",
+                      "on-tertiary-container": "#254188",
+                      "surface-container-high": "#2d2a21",
+                      "error": "#ffb4ab",
+                      "on-background": "#eae1d4",
+                      "surface-container-low": "#1f1b13",
+                      "surface-container-highest": "#38342b",
+                      "on-secondary-fixed": "#191c21",
+                      "secondary-fixed-dim": "#c4c6cd",
+                      "on-surface-variant": "#d0c5af",
+                      "on-error-container": "#ffdad6",
+                      "on-tertiary-fixed-variant": "#27438a",
+                      "surface-tint": "#e9c349",
+                      "surface-dim": "#16130b",
+                      "surface": "#16130b",
+                      "surface-container": "#231f17",
+                      "on-surface": "#eae1d4",
+                      "tertiary-fixed": "#dbe1ff",
+                      "outline": "#99907c",
+                      "on-tertiary-fixed": "#00174b",
+                      "on-secondary": "#2d3136",
+                      "tertiary-container": "#97b0ff",
+                      "secondary": "#c4c6cd",
+                      "on-primary-container": "#554300",
+                      "inverse-surface": "#eae1d4",
+                      "inverse-primary": "#735c00",
+                      "tertiary": "#bfcdff",
+                      "on-error": "#690005",
+                      "inverse-on-surface": "#343027",
+                      "secondary-container": "#44474d",
+                      "surface-variant": "#38342b",
+                      "surface-bright": "#3d392f",
+                      "background": "#16130b",
+                      "on-primary-fixed": "#241a00",
+                      "secondary-fixed": "#e0e2e9",
+                      "primary-fixed-dim": "#e9c349",
+                      "on-secondary-container": "#b3b5bc",
+                      "primary-fixed": "#ffe088"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "container-max-width": "1280px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px",
+                      "unit": "8px"
+              },
+              "fontFamily": {
+                      "display-lg": ["Hanken Grotesk"],
+                      "headline-md": ["Hanken Grotesk"],
+                      "body-md": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "label-sm": ["JetBrains Mono"]
+              },
+              "fontSize": {
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-background border-b border-outline-variant/10 fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16 w-full">
+<div class="flex items-center gap-3 cursor-pointer active:scale-95 transition-transform">
+<div class="w-10 h-10 rounded-full overflow-hidden border border-primary/20">
+<img alt="Thabo Mbeki" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkYh_PrQWwh_wERFIa3o14zsCherj0w2nkFToDiSKB_XjvfNhOvMgS6RG__dL6BaK9FTUMN_hOu8LlwpdwPupXGOAH9X9kaLjheDf7HmpRUExkkKnnmgPdVsLqEepiQIe7T7LnLTu6UjEgX1RQbRkV01OkXocOMhXv_n4aKzhfwu4GWGp-Xyj3GhbiczE1aOmXFOiTJvxtM-goG5uuKSdD0gmoe2utNF0hBfXYyVEI7Nj7Xk95nxhVjidsd3jMzsY_v8dUEHxsTzsT"/>
+</div>
+<span class="font-display-lg text-[24px] tracking-tighter text-primary dark:text-primary">BLANK</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:opacity-80 transition-opacity cursor-pointer active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-margin-mobile py-8 mt-16 md:px-margin-desktop">
+<!-- Hero Section: Total Balance & Quick Actions -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-12">
+<div class="lg:col-span-7 bg-primary-container rounded-xl p-8 text-on-primary-container relative overflow-hidden flex flex-col justify-between min-h-[260px] border border-primary/10 shadow-xl">
+<div class="absolute top-0 right-0 w-64 h-64 bg-on-primary-container opacity-5 rounded-full -mr-20 -mt-20"></div>
+<div>
+<p class="font-label-sm text-label-sm uppercase tracking-widest opacity-80 mb-2">Total Balance</p>
+<h1 class="font-display-lg text-display-lg md:text-[64px] text-on-primary-fixed mb-4">R128,430.50</h1>
+<div class="flex items-center gap-2 text-on-tertiary-fixed-variant bg-tertiary-fixed/30 w-fit px-3 py-1 rounded-full border border-on-tertiary-fixed-variant/20">
+<span class="material-symbols-outlined text-[18px]">trending_up</span>
+<span class="font-label-sm text-label-sm">+2.4% this month</span>
+</div>
+</div>
+<div class="flex gap-4 mt-8">
+<button class="flex-1 bg-on-primary-fixed text-primary-fixed font-label-sm uppercase py-4 rounded-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined">swap_horiz</span>
+                        Quick Transfer
+                    </button>
+<button class="flex-1 bg-surface-container-lowest text-on-surface font-label-sm uppercase py-4 rounded-lg flex items-center justify-center gap-2 border border-outline/20 hover:bg-surface-variant transition-colors active:scale-95 transition-transform">
+<span class="material-symbols-outlined">payments</span>
+                        Pay
+                    </button>
+</div>
+</div>
+<!-- Recent Transactions -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl border border-outline-variant/20 overflow-hidden shadow-sm">
+<div class="px-6 py-4 bg-surface-container-high border-b border-outline-variant/20 flex justify-between items-center">
+<h2 class="font-headline-md text-[20px] text-primary uppercase tracking-tight">Recent Activity</h2>
+<button class="text-primary font-label-sm hover:underline">View All</button>
+</div>
+<div class="divide-y divide-outline-variant/10">
+<!-- Item 1 -->
+<div class="px-6 py-5 flex items-center justify-between hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary">shopping_bag</span>
+</div>
+<div>
+<p class="font-body-md text-on-surface font-semibold">Woolworths Food</p>
+<p class="font-label-sm text-outline">Yesterday, 4:15 PM</p>
+</div>
+</div>
+<p class="font-body-md font-bold text-on-surface">-R1,299.00</p>
+</div>
+<!-- Item 2 -->
+<div class="px-6 py-5 flex items-center justify-between hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-tertiary-container/20 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<div>
+<p class="font-body-md text-on-surface font-semibold">Salary Deposit</p>
+<p class="font-label-sm text-outline">25 Oct 2023</p>
+</div>
+</div>
+<p class="font-body-md font-bold text-tertiary">+R38,500.00</p>
+</div>
+<!-- Item 3 -->
+<div class="px-6 py-5 flex items-center justify-between hover:bg-surface-container transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary">bolt</span>
+</div>
+<div>
+<p class="font-body-md text-on-surface font-semibold">Eskom Holdings</p>
+<p class="font-label-sm text-outline">24 Oct 2023</p>
+</div>
+</div>
+<p class="font-body-md font-bold text-on-surface">-R2,184.20</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Spending Summary Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="md:col-span-2 bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-6 shadow-sm">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="font-headline-md text-[20px] text-primary uppercase tracking-tight">Spending Summary</h3>
+<p class="font-label-sm text-outline">Weekly overview of your expenses</p>
+</div>
+<div class="flex gap-2 p-1 bg-surface-container rounded-lg">
+<button class="px-4 py-2 rounded-lg bg-primary-container text-on-primary-container font-label-sm">Week</button>
+<button class="px-4 py-2 rounded-lg hover:bg-surface-container-high text-outline font-label-sm transition-colors">Month</button>
+</div>
+</div>
+<!-- Simple Bar Chart Visualization -->
+<div class="flex items-end justify-between h-48 gap-4 px-2">
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-high rounded-t-lg transition-all duration-300 group-hover:bg-primary-container cursor-pointer" style="height: 40%;"></div>
+<span class="font-label-sm text-outline">Mon</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-high rounded-t-lg transition-all duration-300 group-hover:bg-primary-container cursor-pointer" style="height: 65%;"></div>
+<span class="font-label-sm text-outline">Tue</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-primary-container rounded-t-lg transition-all duration-300 group-hover:opacity-80 cursor-pointer" style="height: 85%;"></div>
+<span class="font-label-sm text-outline">Wed</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-high rounded-t-lg transition-all duration-300 group-hover:bg-primary-container cursor-pointer" style="height: 30%;"></div>
+<span class="font-label-sm text-outline">Thu</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-high rounded-t-lg transition-all duration-300 group-hover:bg-primary-container cursor-pointer" style="height: 55%;"></div>
+<span class="font-label-sm text-outline">Fri</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-high rounded-t-lg transition-all duration-300 group-hover:bg-primary-container cursor-pointer" style="height: 20%;"></div>
+<span class="font-label-sm text-outline">Sat</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-2 group">
+<div class="w-full bg-surface-container-high rounded-t-lg transition-all duration-300 group-hover:bg-primary-container cursor-pointer" style="height: 45%;"></div>
+<span class="font-label-sm text-outline">Sun</span>
+</div>
+</div>
+</div>
+<!-- Savings Goal -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-6 flex flex-col justify-between shadow-sm">
+<div>
+<h3 class="font-headline-md text-[20px] text-primary uppercase tracking-tight mb-1">Savings Goal</h3>
+<p class="font-label-sm text-outline">Kruger National Park Trip</p>
+</div>
+<div class="flex flex-col items-center justify-center py-4">
+<div class="relative w-32 h-32 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90">
+<circle class="text-surface-container-high" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="6"></circle>
+<circle class="text-primary-container" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="91.1" stroke-width="8"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="font-headline-md text-on-surface">75%</span>
+</div>
+</div>
+</div>
+<div>
+<div class="flex justify-between font-label-sm mb-2">
+<span class="text-outline">Progress</span>
+<span class="text-on-surface font-bold">R12,000 / R16,000</span>
+</div>
+<button class="w-full py-3 rounded-lg border border-primary/30 text-primary font-label-sm uppercase hover:bg-surface-container-high transition-colors active:scale-95 transition-transform">Add Funds</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-4 pb-safe bg-surface border-t border-outline-variant/10 shadow-lg">
+<a class="flex flex-col items-center justify-center text-primary font-bold active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary-fixed-dim transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-sm">Accounts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary-fixed-dim transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">swap_horiz</span>
+<span class="font-label-sm">Transfer</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary hover:text-primary-fixed-dim transition-colors active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-sm">History</span>
+</a>
+</nav>
+<script>
+        // Toggle Active State Logic
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                navLinks.forEach(l => {
+                    l.classList.remove('text-primary', 'font-bold');
+                    l.classList.add('text-secondary');
+                    const icon = l.querySelector('.material-symbols-outlined');
+                    if (icon) icon.style.fontVariationSettings = "'FILL' 0";
+                });
+                link.classList.add('text-primary', 'font-bold');
+                link.classList.remove('text-secondary');
+                const activeIcon = link.querySelector('.material-symbols-outlined');
+                if (activeIcon) activeIcon.style.fontVariationSettings = "'FILL' 1";
+            });
+        });
+    </script>
+</body></html>

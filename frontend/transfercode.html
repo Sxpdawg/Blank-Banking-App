@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Transfer Center - BLANK</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#574500",
+                        "outline-variant": "#4d4635",
+                        "on-tertiary": "#082b72",
+                        "primary-container": "#d4af37",
+                        "surface-container-lowest": "#110e07",
+                        "primary": "#f2ca50",
+                        "tertiary-fixed-dim": "#b4c5ff",
+                        "on-primary": "#3c2f00",
+                        "on-secondary-fixed-variant": "#44474d",
+                        "error-container": "#93000a",
+                        "on-tertiary-container": "#254188",
+                        "surface-container-high": "#2d2a21",
+                        "error": "#ffb4ab",
+                        "on-background": "#eae1d4",
+                        "surface-container-low": "#1f1b13",
+                        "surface-container-highest": "#38342b",
+                        "on-secondary-fixed": "#191c21",
+                        "secondary-fixed-dim": "#c4c6cd",
+                        "on-surface-variant": "#d0c5af",
+                        "on-error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#27438a",
+                        "surface-tint": "#e9c349",
+                        "surface-dim": "#16130b",
+                        "surface": "#16130b",
+                        "surface-container": "#231f17",
+                        "on-surface": "#eae1d4",
+                        "tertiary-fixed": "#dbe1ff",
+                        "outline": "#99907c",
+                        "on-tertiary-fixed": "#00174b",
+                        "on-secondary": "#2d3136",
+                        "tertiary-container": "#97b0ff",
+                        "secondary": "#c4c6cd",
+                        "on-primary-container": "#554300",
+                        "inverse-surface": "#eae1d4",
+                        "inverse-primary": "#735c00",
+                        "tertiary": "#bfcdff",
+                        "on-error": "#690005",
+                        "inverse-on-surface": "#343027",
+                        "secondary-container": "#44474d",
+                        "surface-variant": "#38342b",
+                        "surface-bright": "#3d392f",
+                        "background": "#16130b",
+                        "on-primary-fixed": "#241a00",
+                        "secondary-fixed": "#e0e2e9",
+                        "primary-fixed-dim": "#e9c349",
+                        "on-secondary-container": "#b3b5bc",
+                        "primary-fixed": "#ffe088"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max-width": "1280px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "financial-data": ["Inter"],
+                        "label-sm": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "financial-data": ["20px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .form-card-shadow {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .chrome-accent {
+            background: linear-gradient(135deg, #e5e7eb 0%, #9ca3af 50%, #d1d5db 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-background dark:bg-background border-b border-outline-variant/10 fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop h-16">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full border border-primary/30 overflow-hidden flex items-center justify-center cursor-pointer active:scale-95 transition-transform">
+<img alt="User Profile Picture" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkYh_PrQWwh_wERFIa3o14zsCherj0w2nkFToDiSKB_XjvfNhOvMgS6RG__dL6BaK9FTUMN_hOu8LlwpdwPupXGOAH9X9kaLjheDf7HmpRUExkkKnnmgPdVsLqEepiQIe7T7LnLTu6UjEgX1RQbRkV01OkXocOMhXv_n4aKzhfwu4GWGp-Xyj3GhbiczE1aOmXFOiTJvxtM-goG5uuKSdD0gmoe2utNF0hBfXYyVEI7Nj7Xk95nxhVjidsd3jMzsY_v8dUEHxsTzsT"/>
+</div>
+<span class="font-display-lg text-display-lg tracking-tighter text-primary dark:text-primary">BLANK</span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:opacity-80 transition-opacity active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-primary">notifications</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 px-margin-mobile md:px-0 max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Left Column -->
+<div class="md:col-span-4 space-y-6">
+<h1 class="font-display-lg text-display-lg text-primary">Transfer Funds</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Move capital securely between your high-interest accounts or send to elite recipients globally with immediate settlement.</p>
+<div class="hidden md:block bg-surface-container-low p-6 rounded-lg border border-outline-variant">
+<h3 class="font-label-sm text-label-sm text-primary mb-4 tracking-widest">SECURITY PROTOCOL</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">Transactions are secured by 256-bit encryption and monitored by our dedicated private banking security desk.</p>
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span class="font-label-sm text-label-sm">ENCRYPTED END-TO-END</span>
+</div>
+</div>
+<!-- Ad-like Promo Card -->
+<div class="relative h-48 rounded-lg overflow-hidden shadow-sm group border border-outline-variant/20">
+<img alt="Elite Global Banking" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqlcMhBeCQddYNfA6AAzrBLcy7YrjkX4WmfzcRQYsUSZ-rpYr48F0EIsI_A5bNwfsxCvtfNQDsxJAl7VunxgevyT5vZEx3dVkP9ZgeCOf7uVSQ_rdUZs4AcP8_Sp18ncjcIuSAIjtWUH99RPYwmDfcpJpGUeCw8lw1n2pbokKLmoUEsfV1FbKOvxNG9XbyeukGWaxZQI-5l8F608Z1hOpcMrzPgaHcZsV4I-L7-MBo7Jh3pwjDs0dASf8s01pILADro5kZ5uUxU4ro"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex flex-col justify-end p-6">
+<span class="font-label-sm text-primary">EXCLUSIVITY</span>
+<p class="font-headline-md text-white leading-tight">Zero fees on high-value transfers across African borders.</p>
+</div>
+</div>
+</div>
+<!-- Right Column: The Transfer Form -->
+<div class="md:col-span-8">
+<div class="bg-surface-container-lowest border border-outline-variant/30 rounded-lg form-card-shadow overflow-hidden">
+<!-- Card Header -->
+<div class="bg-surface-container px-6 py-4 border-b border-outline-variant flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-on-surface">Transaction Details</h2>
+<span class="font-label-sm text-label-sm bg-primary/10 px-3 py-1 rounded-full text-primary border border-primary/20 uppercase">Stage 01</span>
+</div>
+<form class="p-6 md:p-8 space-y-8" id="transferForm">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- From Account -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-primary uppercase">From Account</label>
+<div class="relative">
+<select class="w-full appearance-none h-14 pl-4 pr-10 bg-surface-container border border-outline-variant rounded-lg font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all cursor-pointer">
+<option>Wealth Portfolio — *4421 (R124,500.00)</option>
+<option>Platinum Reserve — *8829 (R12,310.45)</option>
+<option>Gold Liquid — *1002 (R450,000.00)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-primary pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- To Account -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-primary uppercase">To Recipient</label>
+<div class="relative">
+<input class="w-full h-14 pl-12 pr-4 bg-surface-container border border-outline-variant rounded-lg font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all" placeholder="Search name or reference" type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary">search</span>
+</div>
+</div>
+</div>
+<!-- Amount & Currency -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-primary uppercase">Transfer Amount</label>
+<div class="relative flex items-center">
+<span class="absolute left-6 text-headline-md font-bold text-primary">R</span>
+<input class="w-full h-24 pl-14 pr-6 bg-surface-container-low border-0 border-b-2 border-primary focus:border-primary-fixed-dim focus:ring-0 rounded-t-lg font-display-lg text-display-lg text-on-surface transition-all placeholder:text-outline-variant/30" placeholder="0.00" type="number"/>
+</div>
+<div class="flex justify-between items-center px-1 pt-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">DAILY THRESHOLD: R50,000.00</span>
+<button class="font-label-sm text-label-sm text-primary hover:underline uppercase tracking-wider" type="button">Request Increase</button>
+</div>
+</div>
+<!-- Memo / Note -->
+<div class="space-y-2">
+<label class="font-label-sm text-label-sm text-primary uppercase">Reference (Optional)</label>
+<textarea class="w-full p-4 bg-surface-container border border-outline-variant rounded-lg font-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary/20 transition-all resize-none" placeholder="Enter transaction reference" rows="3"></textarea>
+</div>
+<!-- Actions -->
+<div class="flex flex-col md:flex-row gap-4 pt-4">
+<button class="flex-1 h-14 bg-primary text-on-primary rounded-lg font-label-sm text-label-sm uppercase font-bold tracking-widest flex items-center justify-center gap-2 hover:bg-primary-container transition-all active:scale-[0.98]" id="reviewButton" type="button">
+                            Review Transaction
+                            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<button class="h-14 px-8 border border-primary text-primary rounded-lg font-label-sm text-label-sm uppercase font-bold tracking-widest hover:bg-primary/5 transition-all" type="button">
+                            Save Template
+                        </button>
+</div>
+</form>
+</div>
+<!-- Recent Recipients -->
+<div class="mt-12 space-y-6">
+<h3 class="font-label-sm text-label-sm text-primary tracking-widest uppercase">Quick Select Recipients</h3>
+<div class="flex gap-6 overflow-x-auto hide-scrollbar pb-4">
+<button class="flex flex-col items-center gap-3 group min-w-[80px]">
+<div class="w-16 h-16 rounded-full bg-surface-container border-2 border-outline-variant group-hover:border-primary transition-all flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">add</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">New</span>
+</button>
+<!-- Recipient 1 -->
+<button class="flex flex-col items-center gap-3 group min-w-[80px]">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all p-0.5">
+<div class="w-full h-full rounded-full overflow-hidden">
+<img alt="Lindiwe" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxpK7z4G0w65A4m-p-Rf6G1yVVvBfpXeD1mWNDn04mDPE_3XiCyjwrQZWQIvMwgD9I_M4-oZPCicRAwYPkHfGRkFeM0Wl6fUcKqbuEUcq2bC0hDj3YcL8zkD1YT79ny3ZIhBMmRfckrh_rnikD3Y19tCDdLoG6WtC022b-303UxLa7cikq5Wz4ijOL0TIBz8DuC_kv4AXRCLI4PvVFVBSknfnyhNG0Sn7-HeUMwHFqV9NlaTO5cC6v1GqlwRIjYHvWVkqfbwbXB4QR"/>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Lindiwe</span>
+</button>
+<!-- Recipient 2 -->
+<button class="flex flex-col items-center gap-3 group min-w-[80px]">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all p-0.5">
+<div class="w-full h-full rounded-full overflow-hidden bg-surface-container flex items-center justify-center">
+<span class="font-headline-md text-primary">S</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Sipho</span>
+</button>
+<!-- Recipient 3 -->
+<button class="flex flex-col items-center gap-3 group min-w-[80px]">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-transparent group-hover:border-primary transition-all p-0.5">
+<div class="w-full h-full rounded-full overflow-hidden bg-surface-container flex items-center justify-center">
+<span class="font-headline-md text-primary">Z</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">Zanele</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-4 pb-safe bg-surface border-t border-outline-variant/10 md:hidden">
+<a class="flex flex-col items-center justify-center text-secondary active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+<span class="font-label-sm text-label-sm">Accounts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">swap_horiz</span>
+<span class="font-label-sm text-label-sm">Transfer</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-sm text-label-sm">History</span>
+</a>
+</nav>
+<!-- Confirmation Overlay -->
+<div class="fixed inset-0 bg-black/80 backdrop-blur-md z-[100] hidden items-center justify-center p-6" id="reviewOverlay">
+<div class="bg-surface-container-lowest w-full max-w-md rounded-lg border border-primary/20 p-8 shadow-2xl space-y-8">
+<div class="flex justify-between items-start border-b border-outline-variant pb-4">
+<h2 class="font-headline-md text-headline-md text-primary">Authorize Transfer</h2>
+<button class="p-1 hover:bg-surface-container rounded-full transition-colors text-primary" onclick="toggleReview()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between font-body-md">
+<span class="text-on-surface-variant uppercase text-xs tracking-widest">Origin Account</span>
+<span class="text-on-surface font-bold">Wealth Portfolio</span>
+</div>
+<div class="flex justify-between items-end">
+<span class="text-on-surface-variant uppercase text-xs tracking-widest mb-2">Total Value</span>
+<span class="text-primary font-display-lg text-3xl" id="confirmAmount">R0.00</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg flex items-center gap-3 border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary">verified</span>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Real-time clearance is active for this account tier.</p>
+</div>
+</div>
+<button class="w-full h-16 bg-primary text-on-primary rounded-lg font-label-sm text-label-sm uppercase font-bold tracking-widest flex items-center justify-center gap-3 shadow-xl shadow-primary/10 active:scale-95 transition-transform" onclick="completeTransfer()">
+                Finalize &amp; Execute
+                <span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+<script>
+        const reviewButton = document.getElementById('reviewButton');
+        const reviewOverlay = document.getElementById('reviewOverlay');
+        const amountInput = document.querySelector('input[type="number"]');
+        const confirmAmountText = document.getElementById('confirmAmount');
+
+        function toggleReview() {
+            if (reviewOverlay.classList.contains('hidden')) {
+                const amount = amountInput.value || "0.00";
+                confirmAmountText.innerText = `R${parseFloat(amount).toLocaleString('en-ZA', {minimumFractionDigits: 2})}`;
+                reviewOverlay.classList.remove('hidden');
+                reviewOverlay.classList.add('flex');
+            } else {
+                reviewOverlay.classList.add('hidden');
+                reviewOverlay.classList.remove('flex');
+            }
+        }
+
+        function completeTransfer() {
+            reviewOverlay.innerHTML = `
+                <div class="flex flex-col items-center justify-center py-12 space-y-6 text-center">
+                    <div class="w-20 h-20 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center text-primary animate-pulse">
+                        <span class="material-symbols-outlined text-[48px]">check_circle</span>
+                    </div>
+                    <div>
+                        <h2 class="font-display-lg text-display-lg-mobile text-primary mb-2">Transmission Executed</h2>
+                        <p class="font-body-md text-on-surface-variant">Your capital has been moved successfully. Reference: BLK-${Math.floor(Math.random()*1000000)}</p>
+                    </div>
+                    <button onclick="window.location.reload()" class="mt-4 px-8 h-12 border border-primary text-primary font-label-sm text-label-sm uppercase tracking-widest hover:bg-primary/5 rounded-lg transition-all">Dismiss</button>
+                </div>
+            `;
+        }
+
+        reviewButton.addEventListener('click', toggleReview);
+
+        amountInput.addEventListener('input', (e) => {
+            if (e.target.value > 50000) {
+                e.target.value = 50000;
+            }
+        });
+    </script>
+</body></html>
