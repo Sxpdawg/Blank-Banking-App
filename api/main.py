@@ -1,0 +1,20 @@
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from ledger import register_user
+
+app = FastAPI()
+
+class UserCreate(BaseModel):
+    username: str
+    password_hash: str
+    email: str
+
+@app.post("/users")
+async def create_user(user: UserCreate):
+    try:
+        user_id = register_user(user.username, user.password_hash, user.email)
+        return {"user_id": user_id, "message": "User registered successfully"}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Internal server error")
