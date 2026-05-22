@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from ledger import register_user, transfer_funds, get_balance
+from ledger import register_user, transfer_funds, get_balance, get_transaction_history
 
 app = FastAPI()
 
@@ -49,3 +49,22 @@ async def get_account_balance(account_id: int):
         raise HTTPException(status_code=404, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail="Internal server error")
+
+@app.get("/accounts/{account_id}/history")
+async def get_account_history(account_id: int):
+    try:
+        history = get_transaction_history(account_id)
+        # Format the history data nicely
+        formatted_history = [
+            {
+                "transaction_id": row[0],
+                "from_account_id": row[1],
+                "to_account_id": row[2],
+                "amount": row[3],
+                "memo": row[4],
+                "timestamp": row[5]
+            } for row in history
+        ]
+        return {"account_id": account_id, "history": formatted_history}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
