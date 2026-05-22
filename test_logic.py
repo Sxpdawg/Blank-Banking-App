@@ -1,14 +1,16 @@
+import unittest
 from ledger import register_user, create_account, get_balance
 
-# 1. Register a user
-user_id = register_user("john_doe", "hashed_password_123", "john@example.com")
-print(f"Registered user ID: {user_id}")
+class TestBankingLogic(unittest.TestCase):
+    def test_user_registration(self):
+        user_id = register_user("test_user", "pass", "test@test.com")
+        self.assertIsNotNone(user_id)
 
-if user_id:
-    # 2. Create an account
-    acc_id = create_account(user_id, "savings")
-    print(f"Created account ID: {acc_id}")
+    def test_account_creation(self):
+        user_id = register_user("test_user_2", "pass", "test2@test.com")
+        acc_id = create_account(user_id, "savings")
+        self.assertIsNotNone(acc_id)
+        self.assertEqual(get_balance(acc_id), 0.00)
 
-    # 3. Check balance
-    balance = get_balance(acc_id)
-    print(f"Current balance: {balance}")
+if __name__ == '__main__':
+    unittest.main()
