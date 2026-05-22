@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from ledger import register_user
+from ledger import register_user, transfer_funds, get_balance, get_transaction_history
 
 app = FastAPI()
 
@@ -8,6 +8,12 @@ class UserCreate(BaseModel):
     username: str
     password_hash: str
     email: str
+
+class TransferRequest(BaseModel):
+    from_account_id: int
+    to_account_id: int
+    amount: float
+    memo: str = None
 
 @app.post("/users")
 async def create_user(user: UserCreate):
@@ -18,3 +24,47 @@ async def create_user(user: UserCreate):
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail="Internal server error")
+
+@app.post("/transfers")
+async def perform_transfer(transfer: TransferRequest):
+    try:
+        success = transfer_funds(
+            transfer.from_account_id, 
+            transfer.to_account_id, 
+            transfer.amount, 
+            transfer.memo
+        )
+        return {"message": "Transfer successful"}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except RuntimeError as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/accounts/{account_id}/balance")
+async def get_account_balance(account_id: int):
+    try:
+        balance = get_balance(account_id)
+        return {"account_id": account_id, "balance": balance}
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+@app.get("/accounts/{account_id}/history")
+async def get_account_history(account_id: int):
+    try:
+        history = get_transaction_history(account_id)
+        # Format the history data nicely
+        formatted_history = [
+            {
+                "transaction_id": row[0],
+                "from_account_id": row[1],
+                "to_account_id": row[2],
+                "amount": row[3],
+                "memo": row[4],
+                "timestamp": row[5]
+            } for row in history
+        ]
+        return {"account_id": account_id, "history": formatted_history}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
