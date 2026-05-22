@@ -40,7 +40,7 @@ def get_balance(account_id):
     finally:
         conn.close()
 
-def transfer_funds(from_acc, to_acc, amount):
+def transfer_funds(from_acc, to_acc, amount, memo=None):
     conn = get_db_connection()
     try:
         cursor = conn.cursor()
@@ -54,7 +54,7 @@ def transfer_funds(from_acc, to_acc, amount):
         # Perform transfer inside a transaction
         cursor.execute("UPDATE accounts SET balance = balance - ? WHERE account_id = ?", (amount, from_acc))
         cursor.execute("UPDATE accounts SET balance = balance + ? WHERE account_id = ?", (amount, to_acc))
-        cursor.execute("INSERT INTO transactions (from_account_id, to_account_id, amount) VALUES (?, ?, ?)", (from_acc, to_acc, amount))
+        cursor.execute("INSERT INTO transactions (from_account_id, to_account_id, amount, memo) VALUES (?, ?, ?, ?)", (from_acc, to_acc, amount, memo))
         
         conn.commit()
         return True
