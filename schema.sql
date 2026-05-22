@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS transactions (
     from_account_id INT NOT NULL,
     to_account_id INT NOT NULL,
     amount DECIMAL(15, 2) NOT NULL,
+    memo TEXT,
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (from_account_id) REFERENCES accounts(account_id),
     FOREIGN KEY (to_account_id) REFERENCES accounts(account_id)

@@ -1,3 +1,4 @@
+# This is a test comment to verify the Git workflow.
 import sqlite3
 
 def get_db_connection():

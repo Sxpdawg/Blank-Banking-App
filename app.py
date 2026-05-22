@@ -10,6 +10,7 @@ def main():
     transfer.add_argument("--from", dest="from_acc", type=int, required=True)
     transfer.add_argument("--to", type=int, required=True)
     transfer.add_argument("--amount", type=float, required=True)
+    transfer.add_argument("--memo", type=str, help="Add a description to the transfer")
 
     # History command
     history = subparsers.add_parser("history", help="Get transaction history")
@@ -22,7 +23,7 @@ def main():
     args = parser.parse_args()
 
     if args.command == "transfer":
-        if ledger.transfer_funds(args.from_acc, args.to, args.amount):
+        if ledger.transfer_funds(args.from_acc, args.to, args.amount, args.memo):
             print("Transfer successful!")
         else:
             print("Transfer failed.")
