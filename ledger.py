@@ -12,8 +12,7 @@ def register_user(username, password_hash, email):
         conn.commit()
         return cursor.lastrowid
     except sqlite3.IntegrityError:
-        print("Error: Username or Email already exists.")
-        return None
+        raise ValueError("Username or Email already exists.")
     finally:
         conn.close()
 
@@ -36,7 +35,9 @@ def get_balance(account_id):
         cursor = conn.cursor()
         cursor.execute("SELECT balance FROM accounts WHERE account_id = ?", (account_id,))
         result = cursor.fetchone()
-        return result[0] if result else None
+        if result is None:
+            raise ValueError("Account not found.")
+        return result[0]
     finally:
         conn.close()
 
@@ -46,10 +47,13 @@ def transfer_funds(from_acc, to_acc, amount, memo=None):
         cursor = conn.cursor()
         # Check sufficient funds
         cursor.execute("SELECT balance FROM accounts WHERE account_id = ?", (from_acc,))
-        balance = cursor.fetchone()[0]
+        result = cursor.fetchone()
+        if result is None:
+            raise ValueError("Source account not found.")
+        
+        balance = result[0]
         if balance < amount:
-            print("Insufficient funds")
-            return False
+            raise ValueError("Insufficient funds.")
         
         # Perform transfer inside a transaction
         cursor.execute("UPDATE accounts SET balance = balance - ? WHERE account_id = ?", (amount, from_acc))
@@ -59,9 +63,8 @@ def transfer_funds(from_acc, to_acc, amount, memo=None):
         conn.commit()
         return True
     except sqlite3.Error as e:
-        print(f"Transaction failed: {e}")
         conn.rollback()
-        return False
+        raise RuntimeError(f"Transaction failed: {e}")
     finally:
         conn.close()
 
