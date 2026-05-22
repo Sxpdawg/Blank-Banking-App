@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from ledger import register_user
+from ledger import register_user, transfer_funds
 
 app = FastAPI()
 
@@ -8,6 +8,12 @@ class UserCreate(BaseModel):
     username: str
     password_hash: str
     email: str
+
+class TransferRequest(BaseModel):
+    from_account_id: int
+    to_account_id: int
+    amount: float
+    memo: str = None
 
 @app.post("/users")
 async def create_user(user: UserCreate):
@@ -18,3 +24,18 @@ async def create_user(user: UserCreate):
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
         raise HTTPException(status_code=500, detail="Internal server error")
+
+@app.post("/transfers")
+async def perform_transfer(transfer: TransferRequest):
+    try:
+        success = transfer_funds(
+            transfer.from_account_id, 
+            transfer.to_account_id, 
+            transfer.amount, 
+            transfer.memo
+        )
+        return {"message": "Transfer successful"}
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except RuntimeError as e:
+        raise HTTPException(status_code=500, detail=str(e))
